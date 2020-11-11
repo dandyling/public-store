@@ -16,8 +16,9 @@ export const DonePage = () => {
       <Panel justifyCenter alignCenter>
         <Column alignCenter justifyCenter my={32} mx={16}>
           <Text center mb={64}>
-            Your order has been placed. Please wait for 2 weeks for your order
-            to be delivered
+            Your order has been placed. An order confirmation is sent to your
+            email for your reference. Please allow up to 10 working days for
+            your order to be delivered.
           </Text>
           <Text
             onClick={() => navigate(`/${loc.toLowerCase()}`)}
