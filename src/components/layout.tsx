@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from "react"
 import { useRecoilValue } from "recoil"
 import styled from "styled-components"
 import { isLoadingState, mainState, scrollState } from "../states/state"
-import { Column, isPx } from "../styles/style"
+import { Column, isPx, Text } from "../styles/style"
 import { theme } from "../styles/theme"
 import Header from "./header"
 import "./layout.css"
@@ -45,7 +45,14 @@ const Layout = ({
 }
 
 export const CopyrightFooter = () => (
-  <Footer>© {new Date().getFullYear()}, Training Institute Board</Footer>
+  <Footer>
+    <Column alignCenter>
+      <Text style={{ fontStyle: "italic" }} mt={8} mb={8}>
+        The images shown are for illustration purpose only
+      </Text>
+      ©{new Date().getFullYear()}, Training Institute Board
+    </Column>
+  </Footer>
 )
 
 export interface MainProps {
