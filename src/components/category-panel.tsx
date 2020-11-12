@@ -30,9 +30,10 @@ export const CategoryPanel = ({ categories }: CategoryPanelProps) => {
               alignCenter
               backgroundColor={colorRoulette[i % 3]}
               borderRadius={4}
+              pointer
               onClick={c.onClick}
             >
-              <Text center color={"white"}>
+              <Text pointer center color={"white"}>
                 {c.name}
               </Text>
             </Row>

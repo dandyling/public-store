@@ -7,7 +7,7 @@ import { theme } from "../styles/theme"
 
 export const ProductPhoto = ({ book }: ProductProps) => {
   return (
-    <Row justifyCenter fillWidth alignCenter stretch maxWidth="200px">
+    <Row pointer justifyCenter fillWidth alignCenter stretch maxWidth="200px">
       {book.image ? (
         <Photo src={book.image} />
       ) : (

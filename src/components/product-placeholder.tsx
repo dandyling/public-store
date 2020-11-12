@@ -23,9 +23,10 @@ export const ProductPlaceholder = ({ name }: ProductPlaceholderProps) => {
       padding="8px"
       fillWidth
       stretch
+      pointer
       minHeight={height}
     >
-      <Text color={"white"} center>
+      <Text pointer color={"white"} center>
         {name}
       </Text>
     </Row>
