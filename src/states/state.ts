@@ -25,7 +25,13 @@ export interface Fields {
 
 export type PickupOptions = "Postal Delivery" | "Self Pickup"
 
+export type Level = "Regional" | "Adjoining Group" | "Cluster"
+
+export type Institution = "RBC" | "TIB"
+
 export interface OrderDetails {
+  level: Level
+  institution: Institution
   adjoining_group: string
   cluster: string
   individual: string
@@ -37,6 +43,8 @@ export interface OrderDetails {
 }
 
 export const createOrderDetails = (): OrderDetails => ({
+  level: "Cluster",
+  institution: "TIB",
   adjoining_group: "",
   cluster: "",
   individual: "",

@@ -12,6 +12,7 @@ import {
   Book,
   clone,
   isLoadingState,
+  Level,
   Location,
   locationState,
   locState,
@@ -19,6 +20,7 @@ import {
   orderDetailsState,
   PickupOptions,
   productsState,
+  Institution,
   toastState,
 } from "../../states/state"
 import { Button, Column, Icon, Panel, Row } from "../../styles/style"
@@ -28,6 +30,10 @@ import { goBack } from "../../templates/product-details"
 export interface PlaceOrderPage {
   path?: string
 }
+
+const LevelSelections: Level[] = ["Regional", "Adjoining Group", "Cluster"]
+
+const InstitutionSelections: Institution[] = ["RBC", "TIB"]
 
 type Order = OrderDetails & {
   orders: Book[]
@@ -55,17 +61,7 @@ export const getAdjoiningGroups = (
 export const getClusters = (
   locations: (Location & Id)[],
   adjGroup: string
-): string[] => {
-  const clusters = locations.find(l => l.id === adjGroup)?.contains
-  const adjTeam = `${adjGroup} Team`
-  if (clusters) {
-    const all = [...clusters]
-    all.push(adjTeam)
-    return all
-  } else {
-    return []
-  }
-}
+): string[] => locations.find(l => l.id === adjGroup)?.contains
 
 export const PlaceOrderPage = (props: PlaceOrderPage) => {
   const [orderDetails, setOrderDetails] = useRecoilState(orderDetailsState)
@@ -133,9 +129,14 @@ export const PlaceOrderPage = (props: PlaceOrderPage) => {
       setToast("Please provide Phone Number")
     } else if (!orderDetails.email) {
       setToast("Please provide Email")
-    } else if (!orderDetails.adjoining_group) {
+    } else if (orderDetails.level === "Regional" && !orderDetails.institution) {
+      setToast("Please provide institution")
+    } else if (
+      orderDetails.level === "Adjoining Group" &&
+      !orderDetails.adjoining_group
+    ) {
       setToast("Please provide Adjoining Group")
-    } else if (!orderDetails.cluster) {
+    } else if (orderDetails.level === "Cluster" && !orderDetails.cluster) {
       setToast("Please provide Cluster")
     } else if (!orderDetails.address && !isSelfPickup) {
       setToast("Please provide Delivery Address")
@@ -215,7 +216,21 @@ export const PlaceOrderPage = (props: PlaceOrderPage) => {
             value={orderDetails.email}
             onChange={e => handleChange(e, "email")}
           />
-          {adjoiningGroups?.length > 0 && (
+          <RowSelect
+            label="Level"
+            value={orderDetails.level}
+            onChange={e => handleChange(e, "level")}
+            selections={LevelSelections}
+          />
+          {orderDetails.level === "Regional" && (
+            <RowSelect
+              label="Institution"
+              value={orderDetails.institution}
+              onChange={e => handleChange(e, "region")}
+              selections={InstitutionSelections}
+            />
+          )}
+          {adjoiningGroups?.length > 0 && orderDetails.level !== "Regional" && (
             <RowSelect
               label="Adjoining Group"
               value={orderDetails.adjoining_group}
@@ -223,14 +238,16 @@ export const PlaceOrderPage = (props: PlaceOrderPage) => {
               selections={adjoiningGroups}
             />
           )}
-          {clusters?.length > 0 && (
-            <RowSelect
-              label="Receiving Cluster"
-              value={orderDetails.cluster}
-              onChange={e => handleChange(e, "cluster")}
-              selections={clusters}
-            />
-          )}
+          {clusters?.length > 0 &&
+            orderDetails.level !== "Regional" &&
+            orderDetails.level !== "Adjoining Group" && (
+              <RowSelect
+                label="Receiving Cluster"
+                value={orderDetails.cluster}
+                onChange={e => handleChange(e, "cluster")}
+                selections={clusters}
+              />
+            )}
           <RowSelect
             label="Pickup Options"
             value={orderDetails.pickupOptions}
