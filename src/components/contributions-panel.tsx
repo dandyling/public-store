@@ -103,6 +103,7 @@ export const ContributionsPanel = ({ orderId }) => {
           padding="8px"
           variant={hasMore ? "light" : null}
           onClick={handleAddContribution}
+          pointer
         >
           Add {hasMore ? "More " : ""}Contribution
         </Button>
