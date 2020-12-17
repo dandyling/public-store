@@ -52,6 +52,7 @@ export const ContributionPane = ({
         padding="8px"
         variant="light"
         onClick={() => refFile.click()}
+        pointer
         style={{ textDecoration: "underline" }}
       >
         {hasReceipt ? "Change" : "Attach"} Receipt
