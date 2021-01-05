@@ -1,14 +1,15 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-    <img alt="Public Store Logo" src="https://firebasestorage.googleapis.com/v0/b/training-institute-01.appspot.com/o/public-store.svg?alt=media&token=5ac253ea-032c-421a-9401-e86e6d5486dd" width="60" />
+    <img alt="Public Store Logo" src="https://firebasestorage.googleapis.com/v0/b/training-institute-01.appspot.com/o/public-store.svg?alt=media&token=5ac253ea-032c-421a-9401-e86e6d5486dd" width="400" />
 </p>
 <h1 align="center">
   Public store
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+An open source repository to implement a basic online shopping store. The aim of this Public Store © is to help businesses to create online shopping presences for free.  Those who find this project helpful and would like to contribute for the growth of the project can <a href="mailto:dandyling@gmail.com">contact me</a>
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Demos
+- <a href="https://institute-store.netlify.app/stib/">https://institute-store.netlify.app/stib/</a>
 
 ## 🚀 Quick start
 
