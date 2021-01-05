@@ -4,11 +4,12 @@
 
 # Public store
 
-An open source repository to create an online shopping store implemented through gatsby. The aim of this Public Store © is to help businesses to create online shopping presences for free.  Those who find this project helpful and would like to contribute for the growth of the project can [contact me](mailto:dandyling@gmail.com) 
+An open source repository to create an online shopping store implemented through gatsby. The aim of this Public Store © is to help businesses to create online shopping presences for free.  Those who find this project helpful and would like to contribute for the growth of the project can [contact me](mailto:dandyling@gmail.com)
 
 ## :movie_camera: Demos
 
-- [https://institute-store.netlify.app/stib/](https://institute-store.netlify.app/stib/)
+- [https://institute-store.netlify.app/stib/](https://institute-store.netlify.app/stib/) 
+  - An example of an online book store created for an NGO using **Public Store**
 
 ## 🚀 Quick start
 
@@ -34,8 +35,8 @@ An open source repository to create an online shopping store implemented through
     Create a .env file at the root directory, and enter the following settings for your firebase project
 
     ```shell
-    FIREBASE_API_KEY=AIzaSyC5eUF5NpaH1zPw4O-ykY8RTQyP2HQaMW8
-    FIREBASE_APP_ID=1:...
+    FIREBASE_API_KEY=...
+    FIREBASE_APP_ID=...
     FIREBASE_MEASUREMENT_ID=...
     FIREBASE_MESSAGING_SENDER_ID=...
     FIREBASE_PROJECT_ID=...
