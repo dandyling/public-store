@@ -1,11 +1,9 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
+    <img alt="Public Store Logo" src="https://firebasestorage.googleapis.com/v0/b/training-institute-01.appspot.com/o/public-store.svg?alt=media&token=5ac253ea-032c-421a-9401-e86e6d5486dd" width="60" />
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Public store
 </h1>
 
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
