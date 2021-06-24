@@ -226,7 +226,7 @@ export const PlaceOrderPage = (props: PlaceOrderPage) => {
             <RowSelect
               label="Institution"
               value={orderDetails.institution}
-              onChange={e => handleChange(e, "region")}
+              onChange={e => handleChange(e, "institution")}
               selections={InstitutionSelections}
             />
           )}
