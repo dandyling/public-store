@@ -39,12 +39,15 @@ export const ContributionsPanel = ({ orderId }) => {
   const uploadFile = async (file, i) => {
     try {
       const storageRef = firebase.storage().ref()
-      const imageRef = storageRef.child(`${orderId}-${i}-receipt`)
+      const imageRef = storageRef.child(
+        `${orderId}-${file.type.split("/")[1]}-${i}-receipt`
+      )
       await imageRef.put(file)
       const url = await imageRef.getDownloadURL()
       const cons = [...contributions]
       cons[i].image = url
       setContributions(cons)
+      handleSave()
     } catch (error) {
       console.error("Image upload error", error)
     }
@@ -72,14 +75,6 @@ export const ContributionsPanel = ({ orderId }) => {
 
   const hasMore = contributions.length > 0
 
-  let canSave = contributions.length !== 0 ? true : false
-  for (let i = 0; i < contributions.length; i++) {
-    if (contributions[i].image === "") {
-      canSave = false
-      break
-    }
-  }
-
   return (
     <Panel fillWidth padding="16px">
       <Column fillWidth>
@@ -94,11 +89,6 @@ export const ContributionsPanel = ({ orderId }) => {
             />
           )
         })}
-        {canSave && (
-          <Button mt={16} padding="8px" onClick={handleSave}>
-            Click Here to Save Contribution
-          </Button>
-        )}
         <Button
           padding="8px"
           variant={hasMore ? "light" : null}

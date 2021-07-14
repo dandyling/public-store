@@ -4,6 +4,8 @@ import { UploadFiles } from "./upload-files"
 import { isLoadingState } from "../states/state"
 import { Button, Column, PlainInput, Row, Text } from "../styles/style"
 import { theme } from "../styles/theme"
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack"
+import styled from "styled-components"
 
 export const ContributionPane = ({
   contribution,
@@ -24,6 +26,8 @@ export const ContributionPane = ({
 
   const hasReceipt = contribution.image !== ""
 
+  const isPdf = contribution?.image?.includes("pdf")
+
   return (
     <Column border={`1px solid ${theme.brandColor}`} fillWidth padding={"8px"}>
       <Row pl={8} alignCenter>
@@ -43,7 +47,14 @@ export const ContributionPane = ({
           onChange={onRemarkChange}
         />
       </Row>
-      <img style={{ margin: 0 }} src={contribution.image}></img>
+      {isPdf && (
+        <PdfWrapper id="pdf-wrapper">
+          <Document file={contribution.image}>
+            <Page pageNumber={1} />
+          </Document>
+        </PdfWrapper>
+      )}
+      {!isPdf && <img style={{ margin: 0 }} src={contribution.image}></img>}
       <UploadFiles
         handleRef={node => (refFile = node)}
         handleFiles={handleFiles}
@@ -60,3 +71,18 @@ export const ContributionPane = ({
     </Column>
   )
 }
+
+const PdfWrapper = styled.div`
+  max-width: 100%;
+  > div {
+    max-width: 100%;
+  }
+  .react-pdf__Page {
+    aspect-ratio: 3 / 4;
+  }
+  canvas {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+  }
+`
