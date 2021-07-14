@@ -39,7 +39,7 @@ module.exports = {
           "type": "service_account",
           "project_id": process.env.FIREBASE_PROJECT_ID,
           "private_key_id": process.env.FIREADMIN_PRIVATE_KEY_ID,
-          "private_key": process.env.node_env === "development" ? process.env.FIREADMIN_PRIVATE_KEY : JSON.parse(process.env.FIREADMIN_PRIVATE_KEY),
+          "private_key": process.env.node_env === "development" ? process.env.FIREADMIN_PRIVATE_KEY : process.env.FIREADMIN_PRIVATE_KEY,
           "client_email": process.env.FIREADMIN_CLIENT_EMAIL,
           "client_id": process.env.FIREADMIN_CLIENT_ID,
           "auth_uri": "https://accounts.google.com/o/oauth2/auth",
