@@ -5,7 +5,10 @@ import { isLoadingState } from "../states/state"
 import { Button, Column, PlainInput, Row, Text } from "../styles/style"
 import { theme } from "../styles/theme"
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack"
+import { pdfjs } from "react-pdf"
 import styled from "styled-components"
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 export const ContributionPane = ({
   contribution,
