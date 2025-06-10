@@ -1,1 +1,6 @@
+[build]
+command = "gatsby build"
+publish = "public"
+
+[build.environment]
 NODE_OPTIONS = "--openssl-legacy-provider"
